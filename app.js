@@ -7,11 +7,13 @@ const { create } = require("express-handlebars");
 const session = require("express-session");
 // const bodyParser = require("body-parser");
 const passport = require("./middleware/passport");
+const cf = require('./middleware');
 const db = require('./middleware/mongoose');
+
 
 db.connect();
 
-const port = 3000;
+// const port = 3000;
 
 const app = express();
 
@@ -65,6 +67,4 @@ app.use(passport.session());
 
 route(app);
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-  })
+cf.cf(app);

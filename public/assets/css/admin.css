@@ -1,0 +1,47 @@
+.body-height{
+    min-height: calc(82vh - var(--icon-size) * 3);
+}
+
+/* upload image */
+#images figure{
+    padding: 0;
+    width: 100%;
+    min-width: 216px;
+}
+#images img{
+    /* max-width: 500px; */
+    width: 400px;
+    /* height: 200px; */
+    object-fit: cover;
+}
+
+#uploadImg input[type="file"] {
+    display: none;
+}
+.img-thumbnail{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#uploadImg p{
+    display: block;
+    
+}
+
+/* name - tag - submit */
+.memeForm{
+    width: 400px;
+    padding-left: 8px;
+}
+#memeName, #memeTag{
+    border: var(--border-size) solid var(--border-color);
+    border-radius: 4px;
+    text-align: center;
+}
+#memeSubmitBtn{
+    width: 60px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    align-self: flex-end;
+}

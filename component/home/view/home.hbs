@@ -1,0 +1,81 @@
+<!-- content -->
+<div class="container my-5 d-flex flex-column align-items-center">
+  <div class="row w-100">
+    {{#each meme}}
+    <!-- column -->
+    <div class="new col-lg-3 mb-3">
+      <div class="meme">
+        <div class="meme-img" style="background-image: url({{{this.link}}});"></div>
+
+        <div class="mx-1 p-1">
+          <div class="meme-NOL-NOV mt-1">
+            <span>
+              {{this.like}} <i class="far fa-thumbs-up"></i>
+            </span>
+            <span style="margin-left: 8px;">
+              {{this.copy}} <i class="far fa-eye"></i>
+            </span>
+          </div>
+
+          <div class="meme-name my-1 d-flex">
+            <span class="bold">Name:</span> <span class="d-inline-block overflow-ellipsis">{{this.name}}</span>
+          </div>
+
+          <div class="meme-tag my-1 d-flex">
+            <span class="bold">Tag:</span> <span class="d-inline-block overflow-ellipsis">{{this.tag}}</span>
+          </div>
+
+          <div class="meme-L-C mt-3">
+            <button class="btn meme-save-btn" id="memeSaveBtn-{{this.link}}">Save</button>
+            <button class="btn meme-copy-btn" id="memeCopyBtn-{{this.link}}" onclick="copyImg(`{{{this.link}}}`)" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Copy</button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <!-- end column -->    
+  {{/each}}
+  </div>
+  <!-- pagination -->
+  <nav class="pagination-outer mt-5" aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item">
+            <a href="#" class="page-link" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+            </a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item "><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item">
+            <a href="#" class="page-link" aria-label="Next">
+                <span aria-hidden="true">»</span>
+            </a>
+        </li>
+    </ul>
+  </nav>
+</div>
+
+{{!-- modal --}}
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      {{!-- <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalCenterTitle">Copied!</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> --}}
+      <div class="modal-body d-flex flex-column align-items-center">
+        <img src="/assets/images/success.gif" alt="Copy successfully">
+        <h3>Copied!</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

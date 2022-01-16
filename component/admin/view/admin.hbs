@@ -1,0 +1,22 @@
+<!-- content -->
+<div class="container my-5 d-flex flex-column align-items-center body-height">
+<form action="/admin/addmeme" method="post" class="m-2 d-flex flex-column align-items-center" enctype="multipart/form-data">
+
+    <!-- image input -->
+    <div id="uploadImg" class="input-group flex-column align-items-center">
+    <input type="file" id="file-input" name="memeImg" accept="image/jpeg. image.png" onchange="preview()" >
+    <label for="file-input" class="custom-file-label btn rounded m-2">
+        <i class="fas fa-upload"></i> Choose a image</label>
+    <p id="numOfFile"></p>
+    <div id="images" class="row w-100 d-lg-flex mt-2 mb-2 align-items-center justify-content-around"></div>
+    </div>  
+
+    <div class="d-flex flex-column memeForm">
+    {{!-- <input type="text" class="p-1 m-1" name="memeName" id="memeName" placeholder="Name of meme"> --}}
+
+    <input type="text" class="p-1 m-1" name="memeTag" id="memeTag" placeholder="Tag of meme">
+
+    <input type="submit" class="m-1 btn-primary" id="memeSubmitBtn" value="Add">
+    </div>
+</form>
+</div>

@@ -21,38 +21,58 @@
 <body>
     <div class="container-fluid m-0 p-0 ">
         {{!-- header --}}
-        <nav class="navbar navbar-dark bg-dark w-100">
-          <a href="#">
+        <nav class="navbar navbar-dark bg-dark w-100 d-flex flex-nowrap">
+          <a href="/">
             <img src="/assets/logo/memeow-white.png" alt="website logo" class="weblogo">
           </a>
 
-          <div class="searchbar">
-            <input class="search_input" type="text" name="" placeholder="Search...">
+          <div class="searchbar w-50 d-flex flex-nowrap">
+            <input class="search_input w-100" type="text" name="" placeholder="Search...">
             <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
           </div>
 
+          {{#if user}}
+          {{!-- loged in --}}
           <div class="userInfor">
-
             <img id="userAvt" src="/assets/images/avt.png" alt="user avatar">
-
             <div class="userInfor-menu">
               <ul class="p-0 m-0 d-flex flex-column">
                 <li class="userInfor-item mt-1">
-                  <a class="for_a userInfor-item-link" href="#">Username</a>
+                  <a class="for_a userInfor-item-link userInfor-item--name w-100" href="#">{{user.fullname}}</a>
                 </li>
                 <li class="userInfor-item mb-1">
                   <a class="for_a userInfor-item-link" href="#">Library</a>
                 </li>
+                {{#unless user.role}}
                 <li class="userInfor-item mb-1">
                   <a class="for_a userInfor-item-link" href="#">Contribute</a>
                 </li>
+                {{/unless}}
+
+                {{#if user.role}}
                 <li class="userInfor-item ">
                   <hr class="m-0">
-                  <a class="for_a userInfor-item-link my-1" href="#">Logout</a>
+                  <a class="for_a userInfor-item-link userInfor-item--name w-100 mt-1" href="/admin">Admin page</a>
                 </li>
+                <li class="userInfor-item ">
+                  <a class="for_a userInfor-item-link mb-1" href="/login/logout">Logout</a>
+                </li>
+                {{else}}
+                <li class="userInfor-item ">
+                  <hr class="m-0">
+                  <a class="for_a userInfor-item-link my-1" href="/login/logout">Logout</a>
+                </li>
+                {{/if}}
               </ul>
             </div>
           </div>
+          {{else}}
+          {{!-- not loged in --}}
+          <div class="userInfor">
+            <a class="btn btn-primary loginBtn" href="/login">Login</a>
+          </div>
+          {{/if}}
+
       </nav>
 
     {{{body}}}

@@ -15,3 +15,19 @@ indexs.forEach((index, i) => {
     cur = i
   })
 })
+
+function saveImg(path, slug){
+  
+  
+  let save = Number($(`#saveApi_${slug}`).text())
+
+  $.post(`/api/home/save/${slug}`, {
+      save: 1
+  }, function (data) {
+      save++;
+      $(`#saveApi_${slug}`).text(save);
+  }).fail(function(data){
+
+  })
+
+}

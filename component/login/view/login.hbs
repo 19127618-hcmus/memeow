@@ -15,16 +15,25 @@
 </head>
 
 <body>
-    <!-- <h2>MEMEOW</h2> -->
-      <a href="#" class="d-flex flex-column align-items-center">
-        <img src="/assets/logo/memeow-black.png" alt="website logo" class="weblogo">
-        <h3>More meme, more fun!</h3>
+    {{!-- Fail --}}
+    <div class="mb-3 d-flex flex-column align-items-center">
+      <a href="/" class="m-0">
+      <img src="/assets/logo/memeow-black.png" alt="website logo" class="weblogo">
       </a>
-   
+      {{#if signIn}}
+        <h4 class="text-danger">{{signIn}}</h4>
+      {{else if signUp}}
+        <h4 class="text-danger">{{signUp}}</h4>
+      {{else}}
+        <h4>More meme, more fun!</h4>
+      {{/if}}
 
+      
+    </div>
+    {{!-- Form --}}
     <div class="container" id="container">
       <div class="form-container sign-up-container">
-        <form action="#">
+        <form action="/login/signup" method="post">
           <h1>Create Account</h1>
           <div class="social-container">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -32,14 +41,15 @@
             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div>
           <span>or use your email for registration</span>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input type="text" placeholder="Fullname" name="SUFullname" required />
+          <input type="email" placeholder="Email" name="SUEmail" required />
+          <input type="password" placeholder="Password" name="SUPassword" required />
           <button>Sign Up</button>
         </form>
       </div>
+
       <div class="form-container sign-in-container">
-        <form action="#">
+        <form action="/login/signin" method="post">
           <h1>Sign in</h1>
           <div class="social-container">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -47,12 +57,13 @@
             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div>
           <span>or use your account</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input type="email" placeholder="Email" name="username" required />
+          <input type="password" placeholder="Password" name="password" required />
           <a href="#">Forgot your password?</a>
           <button>Sign In</button>
         </form>
       </div>
+
       <div class="overlay-container">
         <div class="overlay">
           <div class="overlay-panel overlay-left">
@@ -60,6 +71,7 @@
             <p>To keep connected with us please login with your personal info</p>
             <button class="ghost" id="signIn">Sign In</button>
           </div>
+
           <div class="overlay-panel overlay-right">
             <h1>Hello, Friend!</h1>
             <p>Enter your personal details and start journey with us</p>

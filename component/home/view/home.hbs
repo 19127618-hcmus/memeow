@@ -10,10 +10,12 @@
         <div class="mx-1 p-1">
           <div class="meme-NOL-NOV mt-1">
             <span>
-              {{this.like}} <i class="far fa-thumbs-up"></i>
+              <span id="saveApi_{{{this.slug}}}"> {{this.save}} </span>
+              <i class="far fa-thumbs-up"></i>
             </span>
             <span style="margin-left: 8px;">
-              {{this.copy}} <i class="far fa-eye"></i>
+              <span id="copyApi_{{{this.slug}}}"> {{this.copy}} </span>
+              <i class="far fa-eye"></i>
             </span>
           </div>
 
@@ -26,8 +28,8 @@
           </div>
 
           <div class="meme-L-C mt-3">
-            <button class="btn meme-save-btn" id="memeSaveBtn-{{this.link}}">Save</button>
-            <button class="btn meme-copy-btn" id="memeCopyBtn-{{this.link}}" onclick="copyImg(`{{{this.link}}}`)" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Copy</button>
+            <button class="btn meme-save-btn" id="memeSaveBtn_{{this.link}}" onclick="saveImg(`{{{this.link}}}`, `{{{this.slug}}}`)" data-bs-toggle="modal" data-bs-target="#saveModal">Save</button>
+            <button class="btn meme-copy-btn" id="memeCopyBtn_{{this.link}}" onclick="copyImg(`{{{this.link}}}`, `{{{this.slug}}}`)" data-bs-toggle="modal" data-bs-target="#copyModal">Copy</button>
           </div>
 
 
@@ -60,15 +62,25 @@
 </div>
 
 {{!-- modal --}}
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      {{!-- <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalCenterTitle">Copied!</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> --}}
+      
+      <div class="modal-body d-flex flex-column align-items-center">
+        <img src="/assets/images/success.gif" alt="Save successfully">
+        <h3>Saved!</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="copyModal" tabindex="-1" role="dialog" aria-labelledby="copyModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
       <div class="modal-body d-flex flex-column align-items-center">
         <img src="/assets/images/success.gif" alt="Copy successfully">
         <h3>Copied!</h3>
@@ -79,3 +91,4 @@
     </div>
   </div>
 </div>
+

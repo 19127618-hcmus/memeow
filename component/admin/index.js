@@ -7,8 +7,7 @@ const imageUpload = require('../../middleware/multer');
 router.get('/', adminController.index);
 
 router.post('/addmeme', imageUpload.single('memeImg'), async (req, res) => {
-    console.log(req.file)
-    console.log(req.body)
+    const user = req.user;
 
     let memeLink = req.file.path.replace(/\\/gi,'/');
     memeLink = memeLink.slice(7);
@@ -17,11 +16,12 @@ router.post('/addmeme', imageUpload.single('memeImg'), async (req, res) => {
         name: req.file.filename,
         tag: req.body.memeTag,
         link: memeLink,
+        approve: Number(1),
+        contributor: user.fullname,
     }
 
     await adminController.addmeme(newMeme);
     
-
     res.redirect('/admin');
 
     }, 

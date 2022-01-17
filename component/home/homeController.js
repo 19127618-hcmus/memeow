@@ -1,15 +1,12 @@
+const user = require('../../model/user');
 const homeService = require('./homeService');
 
-class homeController{
-    // [GET] /
-    async index(req, res, next){
-        const meme = await homeService.renderHome();
-        // console.log(meme)
-        res.render('../component/home/view/home', 
-        {
-            meme: meme,
-        });
-    }
+exports.index = async (req, res, next) => {
+    const meme = await homeService.renderHome();
+    // console.log(req.user)
+    res.render('../component/home/view/home', 
+    {
+        meme: meme,
+        user: req.user,
+    });
 }
-
-module.exports = new homeController();

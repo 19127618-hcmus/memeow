@@ -23,7 +23,7 @@
 
     .searchbar > .search_input{
     padding: 0 10px;
-    width: 400px;
+    /* width: 400px; */
     caret-color:red;
     transition: width 0.4s linear;
     }
@@ -49,9 +49,12 @@
 #webName{
     color: var(--webname-color);
 }
-
+/* login btn */
+.loginBtn{
+    margin: 4px 20px;
+}
 /* website logo */
-.weblogo, #userAvt{
+.weblogo, #userAvt {
     margin: 4px 20px;
     width: var(--icon-size);
     height: var(--icon-size);
@@ -84,18 +87,23 @@
 .userInfor-menu::before{
     content: "";
     /* background-color: #e74c3c; */
-    width: 50px;
-    height: 10px;
+    width: 60px;
+    height: 18px;
     position: absolute;
-    top: -8px;
+    top: -14px;
     right: 0;
 }
 .userInfor-item-link{
     padding: 4px 12px;
     text-align: end;
+    
 }
 .userInfor-item-link:hover{
     background-color: whitesmoke;
+}
+.userInfor-item--name{
+    display: block;
+    min-width: max-content;
 }
 
 /* meme */

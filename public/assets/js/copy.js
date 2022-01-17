@@ -125,7 +125,18 @@ var CopyImageClipboard = function(n) {
 }({});
 
 
-function copyImg(path){
+function copyImg(path, slug){
     CopyImageClipboard.copyImageToClipboard(path);
-    console.log(path);
+    
+    let copy = Number($(`#copyApi_${slug}`).text())
+
+    $.post(`/api/home/copy/${slug}`, {
+        copy: 1
+    }, function (data) {
+        copy++;
+        $(`#copyApi_${slug}`).text(copy);
+    }).fail(function(data){
+
+    })
+
 }

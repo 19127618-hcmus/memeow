@@ -10,9 +10,9 @@ const Meme = new Schema(
     tag: { type: String },
     link: { type: String },
     copy: { type: Number, default: 0 },
-    like: { type: Number, default: 0 },
-    approve: { type: Number, default: 1 },
-    contributor: { type: String, default: 'admin' },
+    save: { type: Number, default: 0 },
+    approve: { type: Number }, //-1-> del, 0-> waiting, 1-> ok
+    contributor: { type: String }, 
     slug: { type: String, slug: "name", unique: true },
   },
   { timestamps: true }

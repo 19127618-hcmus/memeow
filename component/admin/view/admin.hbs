@@ -4,7 +4,7 @@
 
     <!-- image input -->
     <div id="uploadImg" class="input-group flex-column align-items-center">
-    <input type="file" id="file-input" name="memeImg" accept="image/jpeg. image.png" onchange="preview()" >
+    <input type="file" id="file-input" name="memeImg" accept="image/jpeg. image.png" onchange="preview()" required>
     <label for="file-input" class="custom-file-label btn rounded m-2">
         <i class="fas fa-upload"></i> Choose a image</label>
     <p id="numOfFile"></p>
@@ -14,7 +14,7 @@
     <div class="d-flex flex-column memeForm">
     {{!-- <input type="text" class="p-1 m-1" name="memeName" id="memeName" placeholder="Name of meme"> --}}
 
-    <input type="text" class="p-1 m-1" name="memeTag" id="memeTag" placeholder="Tag of meme">
+    <input type="text" class="p-1 m-1" name="memeTag" id="memeTag" placeholder="Tag of meme" required>
 
     <input type="submit" class="m-1 btn-primary" id="memeSubmitBtn" value="Add">
     </div>

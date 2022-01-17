@@ -28,7 +28,9 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "sharp": "^0.29.3",
-    "uuidv4": "^6.2.12"
+    "uuidv4": "^6.2.12",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

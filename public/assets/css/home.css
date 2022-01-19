@@ -134,13 +134,13 @@
 }
 .meme-save-btn {
     background-color: pink;
-    width: 40%;
 }
 .meme-copy-btn {
     background-color: rgb(192, 230, 255);
+}
+.meme-btn{
     width: 40%;
 }
-
 .overflow-ellipsis {
     white-space: nowrap; 
     width: 100%; 

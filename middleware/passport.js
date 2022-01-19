@@ -32,6 +32,8 @@ passport.serializeUser(function(user, done) {
         phone: user.phone,
         status: user.status,
         role: user.role,
+        coin: user.coin,
+        avatar: user.avatar,
         library: user.library,
     });
 });

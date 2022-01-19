@@ -13,8 +13,12 @@ const User = new Schema(
 
     status: { type: Number, default: 1 }, //0->block, 1->active
     role: { type: Number, default: 0 }, //0->user, 1->admin
+
+    coin: { type: Number, default: 0 },
+
+    avatar: { type: String, default: "/assets/images/default_avatar.png"},
     
-    library: { type: Array, default: undefined },
+    library: [String],
     // slug: { type: String, slug: "name", unique: true },
   },
   { timestamps: true }

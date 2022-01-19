@@ -28,8 +28,12 @@
           </div>
 
           <div class="meme-L-C mt-3">
-            <button class="btn meme-save-btn" id="memeSaveBtn_{{this.link}}" onclick="saveImg(`{{{this.link}}}`, `{{{this.slug}}}`)" data-bs-toggle="modal" data-bs-target="#saveModal">Save</button>
-            <button class="btn meme-copy-btn" id="memeCopyBtn_{{this.link}}" onclick="copyImg(`{{{this.link}}}`, `{{{this.slug}}}`)" data-bs-toggle="modal" data-bs-target="#copyModal">Copy</button>
+            {{#if this.saved}}
+            <button class="btn meme-btn btn-secondary disabled">Saved</button>
+            {{else}}
+            <button class="btn meme-btn meme-save-btn" id="memeSaveBtn_{{this.slug}}" onclick="saveImg(`{{{this.slug}}}`)" data-bs-toggle="modal" data-bs-target="#saveModal">Save</button>
+            {{/if}}
+            <button class="btn meme-btn meme-copy-btn" id="memeCopyBtn_{{this.slug}}" onclick="copyImg(`{{{this.link}}}`, `{{{this.slug}}}`)" data-bs-toggle="modal" data-bs-target="#copyModal">Copy</button>
           </div>
 
 
@@ -66,11 +70,22 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       
+      {{#if user}}
       <div class="modal-body d-flex flex-column align-items-center">
         <img src="/assets/images/success.gif" alt="Save successfully">
         <h3>Saved!</h3>
       </div>
+      {{else}}
+      <div class="modal-body d-flex flex-column align-items-center">
+        <img src="/assets/images/error.gif" alt="Save successfully" style="width: 50%;" class="my-2">
+        <h3>You need to login first!</h3>
+      </div>
+      {{/if}}
+
       <div class="modal-footer">
+        {{#unless user}}
+        <a href="/login" type="button" class="btn btn-primary" style="margin-right: 8px;">Login</a>
+        {{/unless}}
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>

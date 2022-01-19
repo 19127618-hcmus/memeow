@@ -16,18 +16,28 @@ indexs.forEach((index, i) => {
   })
 })
 
-function saveImg(path, slug){
+function saveImg(slug){
   
+  const userEmail = $('#js-checkUser').val();
+
+  if(userEmail){
+    let save = Number($(`#saveApi_${slug}`).text())
+
+    $.post(`/api/home/save/${slug}`, {
+        save: 1,
+        userEmail: userEmail,
+        meme: slug,
+    }, function (data) {
+        save++;
+        $(`#saveApi_${slug}`).text(save);
+        $(`#memeSaveBtn_${slug}`).text("saved");
+        $(`#memeSaveBtn_${slug}`).removeClass('meme-save-btn').addClass('btn-secondary').addClass('disabled');
+    }).fail(function(data){
+
+    })
+  }
+  else{
+    return;
+  }
   
-  let save = Number($(`#saveApi_${slug}`).text())
-
-  $.post(`/api/home/save/${slug}`, {
-      save: 1
-  }, function (data) {
-      save++;
-      $(`#saveApi_${slug}`).text(save);
-  }).fail(function(data){
-
-  })
-
 }

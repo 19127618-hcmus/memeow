@@ -34,7 +34,8 @@
           {{#if user}}
           {{!-- loged in --}}
           <div class="userInfor">
-            <img id="userAvt" src="/assets/images/avt.png" alt="user avatar">
+            <input type="hidden" id="js-checkUser" value="{{user.email}}">
+            <img id="userAvt" src="{{{user.avatar}}}" alt="user avatar">
             <div class="userInfor-menu">
               <ul class="p-0 m-0 d-flex flex-column">
                 <li class="userInfor-item mt-1">

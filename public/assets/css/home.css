@@ -112,6 +112,15 @@
     padding: 12px;
     box-shadow: 3px 3px 10px var(--shadow-color);
     border-radius: 4px;
+    transition: transform 0.3s;
+}
+.meme:hover{
+    background-color: var(--web-color);
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+    box-shadow: 5px 5px 14px var(--shadow-color);
+
 }
 .meme-img{
     /* background-image: url("../images/2.jpg"); */
@@ -247,4 +256,12 @@
   /* footer */
   
 
- 
+ /* modal */
+ #fullWidthMeme {
+    min-height: 60vh;
+    max-height: 75vh;
+    max-width: 90vw;
+ }
+ .modalCoverImg{
+     width: max-content;
+ }

@@ -39,14 +39,14 @@
             <div class="userInfor-menu">
               <ul class="p-0 m-0 d-flex flex-column">
                 <li class="userInfor-item mt-1">
-                  <a class="for_a userInfor-item-link userInfor-item--name w-100" href="#">{{user.fullname}}</a>
+                  <a class="for_a userInfor-item-link userInfor-item--name w-100" href="/menu/user">{{user.fullname}}</a>
                 </li>
                 <li class="userInfor-item mb-1">
-                  <a class="for_a userInfor-item-link" href="#">Library</a>
+                  <a class="for_a userInfor-item-link" href="/menu/library">Library</a>
                 </li>
                 {{#unless user.role}}
                 <li class="userInfor-item mb-1">
-                  <a class="for_a userInfor-item-link" href="#">Contribute</a>
+                  <a class="for_a userInfor-item-link" href="/menu/contribute">Contribute</a>
                 </li>
                 {{/unless}}
 

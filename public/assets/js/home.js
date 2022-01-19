@@ -41,3 +41,7 @@ function saveImg(slug){
   }
   
 }
+
+function viewImg(link){
+  $("#fullWidthMeme").attr("src",link);
+}

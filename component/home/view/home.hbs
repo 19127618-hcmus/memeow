@@ -3,9 +3,9 @@
   <div class="row w-100">
     {{#each meme}}
     <!-- column -->
-    <div class="new col-lg-3 mb-3">
+    <div class="new col-lg-3 mb-4">
       <div class="meme">
-        <div class="meme-img" style="background-image: url({{{this.link}}});"></div>
+        <div class="meme-img" style="background-image: url('/{{{this.link}}}');" onclick="viewImg(`{{{this.link}}}`)" data-bs-toggle="modal" data-bs-target="#viewModal"></div>
 
         <div class="mx-1 p-1">
           <div class="meme-NOL-NOV mt-1">
@@ -66,6 +66,7 @@
 </div>
 
 {{!-- modal --}}
+{{!-- save --}}
 <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -91,7 +92,7 @@
     </div>
   </div>
 </div>
-
+{{!-- copy --}}
 <div class="modal fade" id="copyModal" tabindex="-1" role="dialog" aria-labelledby="copyModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -107,3 +108,19 @@
   </div>
 </div>
 
+{{!-- view --}}
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+    <div class="modal-content modalCoverImg">
+      
+      <div class=" modal-body d-flex flex-column align-items-center">
+        <img id="fullWidthMeme" src="/assets/images/post.jpg" alt="full Width Meme">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

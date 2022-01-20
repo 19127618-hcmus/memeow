@@ -128,9 +128,13 @@ var CopyImageClipboard = function(n) {
 function copyImg(path, slug){
     CopyImageClipboard.copyImageToClipboard(path);
 
-    console.log(path);
+    // console.log(path);
     
     let copy = Number($(`#copyApi_${slug}`).text())
+
+    setTimeout(function() {
+        $('#copyModal-btn').click();
+    }, 3000);
 
     $.post(`/api/home/copy/${slug}`, {
         copy: 1

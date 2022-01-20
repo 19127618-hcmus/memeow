@@ -20,8 +20,14 @@ function saveImg(slug){
   
   const userEmail = $('#js-checkUser').val();
 
+  
+
   if(userEmail){
-    let save = Number($(`#saveApi_${slug}`).text())
+    let save = Number($(`#saveApi_${slug}`).text());
+
+    setTimeout(function() {
+      $('#saveModal-btn').click();
+    }, 3000);
 
     $.post(`/api/home/save/${slug}`, {
         save: 1,
@@ -34,9 +40,12 @@ function saveImg(slug){
         $(`#memeSaveBtn_${slug}`).removeClass('meme-save-btn').addClass('btn-secondary').addClass('disabled');
     }).fail(function(data){
 
-    })
+    });
   }
   else{
+    setTimeout(function() {
+      $('#saveModal-btn').click();
+    }, 10000);
     return;
   }
   

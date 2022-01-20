@@ -44,5 +44,5 @@ exports.signup = async (req, res, next) => {
 
 exports.logout = (req, res, next) => {
     req.logout();
-    res.redirect('/1');
+    res.redirect('/');
 }

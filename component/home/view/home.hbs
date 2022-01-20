@@ -11,7 +11,7 @@
           <div class="meme-NOL-NOV mt-1">
             <span>
               <span id="saveApi_{{{this.slug}}}"> {{this.save}} </span>
-              <i class="fas fa-download"></i>
+              <i class="fas fa-heart"></i>
             </span>
             <span style="margin-left: 8px;">
               <span id="copyApi_{{{this.slug}}}"> {{this.copy}} </span>
@@ -83,6 +83,7 @@
       <div class="modal-body d-flex flex-column align-items-center">
         <img src="/assets/images/success.gif" alt="Save successfully">
         <h3>Saved!</h3>
+        <h5>This meme is already in your library!</h5>
       </div>
       {{else}}
       <div class="modal-body d-flex flex-column align-items-center">
@@ -94,6 +95,8 @@
       <div class="modal-footer">
         {{#unless user}}
         <a href="/login" type="button" class="btn btn-primary" style="margin-right: 8px;">Login</a>
+        {{else}}
+        <a href="/menu/library" type="button" class="btn btn-primary" style="margin-right: 8px;">Library</a>
         {{/unless}}
         <button type="button" id="saveModal-btn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>

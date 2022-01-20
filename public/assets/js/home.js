@@ -50,7 +50,7 @@ function saveImg(slug){
 
     setTimeout(function() {
       $('#saveModal-btn').click();
-    }, 3000);
+    }, 10000);
 
     $.post(`/api/home/save/${slug}`, {
         save: 1,
@@ -66,9 +66,6 @@ function saveImg(slug){
     });
   }
   else{
-    setTimeout(function() {
-      $('#saveModal-btn').click();
-    }, 10000);
     return;
   }
   

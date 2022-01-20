@@ -1,17 +1,25 @@
-const user = require('../../model/user');
+const pagination = require('../../middleware/pagination');
 const homeService = require('./homeService');
 
 exports.index = async (req, res, next) => {
     let meme = undefined;
-    if(!req.user)
-        meme = await homeService.renderHome();
-    else{
-        meme = await homeService.renderHomeLogin(req.user);
+    
+    const perPage = 12;
+    const page = req.params.page || 1;
+    const numOfMeme = await pagination.countMeme();
+    const pages = Math.ceil(numOfMeme/perPage);
+
+    if(!req.user){
+        meme = await homeService.renderHome(perPage, page);
     }
-    // console.log(req.user)
+    else{
+        meme = await homeService.renderHomeLogin(req.user, perPage, page);
+    }
     res.render('../component/home/view/home', 
     {
         meme: meme,
         user: req.user,
+        curPage: page,
+        pages: pages,
     });
 }

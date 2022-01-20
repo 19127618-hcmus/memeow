@@ -1,8 +1,9 @@
 const memeModel = require('../../model/meme');
 const userModel = require('../../model/user');
+const pagination = require('../../middleware/pagination');
 
-exports.renderHomeLogin = async (user) => {
-    const meme = await memeModel.find({}).lean();
+exports.renderHomeLogin = async (user, perPage, page) => {
+    const meme = await pagination.paginationMeme(perPage, page); 
     const objectUser = await userModel.findOne({email: user.email}).lean();
     const lib = objectUser.library;
 
@@ -23,7 +24,7 @@ exports.renderHomeLogin = async (user) => {
     }
     return userSaved;
 }
-exports.renderHome = async () => {
-    return await memeModel.find({}).lean();
-    
+
+exports.renderHome = async (perPage, page) => {
+    return await pagination.paginationMeme(perPage, page);    
 }

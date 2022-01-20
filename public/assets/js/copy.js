@@ -127,6 +127,8 @@ var CopyImageClipboard = function(n) {
 
 function copyImg(path, slug){
     CopyImageClipboard.copyImageToClipboard(path);
+
+    console.log(path);
     
     let copy = Number($(`#copyApi_${slug}`).text())
 

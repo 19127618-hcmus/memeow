@@ -24,9 +24,3 @@ exports.index = async (req, res, next) => {
     });
 }
 
-// exports.searchTag = async function(req, res){
-//     const result = await homeService.searchTag(req.query.searchTag);
-//     res.render('../component/home/view/home', {meme: result});
-//     console.log('okok')
-
-// }

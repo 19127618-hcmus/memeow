@@ -29,6 +29,3 @@ exports.renderHome = async (perPage, page) => {
     return await pagination.paginationMeme(perPage, page);    
 }
 
-// exports.searchTag = (tag) => {
-//     return memeModel.find({$text: {$search: tag}}).lean();
-// }

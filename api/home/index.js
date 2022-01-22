@@ -6,6 +6,5 @@ router.post('/copy/:slug', homeApiController.addCopy);
 
 router.post('/save/:slug', homeApiController.addSave);
 
-// router.get('/search', homeApiController.searchTag);
 
 module.exports = router;

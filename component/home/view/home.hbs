@@ -10,11 +10,11 @@
         <div class="mx-1 p-1">
           <div class="meme-NOL-NOV mt-1">
             <span>
-              <span id="saveApi_{{{this.slug}}}"> {{this.save}} </span>
+              <span id="saveApi_{{{this.slug}}}"> {{this.numOfSave}} </span>
               <i class="fas fa-heart"></i>
             </span>
             <span style="margin-left: 8px;">
-              <span id="copyApi_{{{this.slug}}}"> {{this.copy}} </span>
+              <span id="copyApi_{{{this.slug}}}"> {{this.numOfCopy}} </span>
               <i class="fas fa-copy"></i>
             </span>
           </div>
@@ -28,7 +28,7 @@
           </div>
 
           <div class="meme-L-C mt-3">
-            {{#if this.saved}}
+            {{#if this.Saved}}
             <button class="btn meme-btn btn-secondary disabled">Saved</button>
             {{else}}
             <button class="btn meme-btn meme-save-btn" id="memeSaveBtn_{{this.slug}}" onclick="saveImg(`{{{this.slug}}}`)" data-bs-toggle="modal" data-bs-target="#saveModal">Save</button>
@@ -43,10 +43,11 @@
     <!-- end column -->    
   {{/each}}
   </div>
+
   <!-- pagination -->
   <input type="hidden" value="{{curPage}}" id="curPage">
   <input type="hidden" value="{{pages}}" id="pages">
-  <nav class="pagination-outer mt-5" aria-label="Page navigation">
+  <nav class="pagination-outer mt-5" aria-label="Page navigation" id="js-pagination">
 
     <div class="pagination">
       <span class="page-item">
@@ -135,3 +136,5 @@
     </div>
   </div>
 </div>
+
+<input type="hidden" name="suggestTag" id="suggestTag" value="{{suggestTag}}">

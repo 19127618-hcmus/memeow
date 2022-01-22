@@ -8,14 +8,14 @@ exports.findBySlug = async (slug) => {
 exports.addCopyTime = async (slug, copyTime) => {
     return await memeModel.updateOne(
         {slug: slug},
-        {copy: copyTime}
+        {numOfCopy: copyTime}
         );
 }
 
 exports.addSaveTime = async (slug, saveTime) => {
     return await memeModel.updateOne(
         {slug: slug},
-        {save: saveTime}
+        {numOfSave: saveTime}
         );
 }
 

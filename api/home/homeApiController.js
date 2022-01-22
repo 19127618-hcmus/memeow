@@ -4,7 +4,7 @@ const loginService = require('../../component/login/loginService');
 
 exports.addCopy = async function(req, res) {
     let meme = await homeApiService.findBySlug(req.params.slug);
-    const numOfCopy = meme.copy + Number(req.body.copy);
+    const numOfCopy = meme.numOfCopy + Number(req.body.copy);
 
     meme = await homeApiService.addCopyTime(req.params.slug, numOfCopy);
     res.status(201).json(meme);
@@ -13,7 +13,7 @@ exports.addCopy = async function(req, res) {
 exports.addSave = async function(req, res) {
     let meme = await homeApiService.findBySlug(req.params.slug);
     
-    const numOfSave = meme.save + Number(req.body.save);
+    const numOfSave = meme.numOfSave + Number(req.body.save);
     const userEmail = req.body.userEmail;
     const memeName = req.body.meme;
     

@@ -9,15 +9,15 @@ const Meme = new Schema(
     name: { type: String, required: true },
     tag: { type: String },
     link: { type: String },
-    copy: { type: Number, default: 0 },
-    save: { type: Number, default: 0 },
+    numOfCopy: { type: Number, default: 0 },
+    numOfSave: { type: Number, default: 0 },
     approve: { type: Number }, //-1-> del, 0-> waiting, 1-> ok
     contributor: { type: String }, 
     slug: { type: String, slug: "name", unique: true },
   },
   { timestamps: true }
 );
-// Meme.index({name: 'text', tag: 'text'});
+Meme.index({name: 'text', tag: 'text'});
 // Add plugin
 mongoose.plugin(slug);
 

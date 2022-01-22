@@ -19,26 +19,32 @@ indexs.forEach((index, i) => {
 
 const curPage = Number($('#curPage').val());
 const pages = Number($('#pages').val());
-let pagination = [];
 
-let f = curPage - 4;
-if(f<1) f = 1;
-let l = curPage + 4;
-if(l>pages) l = pages;
-
-if(f>1) $('#js-ulPagination').append('<li class="page-item disabled"><a class="page-link pagination-threeDot-btn">...</a></li>');
-
-for(let i = f; i <= l; i++){
-  let temp = undefined;
-  if(i == curPage){
-    temp = `<li class="page-item active"><a class="page-link" href="/${i}">${i}</a></li>`
-  }
-  else
-    temp = `<li class="page-item"><a class="page-link" href="/${i}">${i}</a></li>`
-    $('#js-ulPagination').append(temp);
+if(pages <= 1){
+  $('#js-pagination').addClass('d-none');
 }
+else{
+  let pagination = [];
 
-if(l<pages) $('#js-ulPagination').append('<li class="page-item disabled"><a class="page-link pagination-threeDot-btn">...</a></li>');
+  let f = curPage - 4;
+  if(f<1) f = 1;
+  let l = curPage + 4;
+  if(l>pages) l = pages;
+
+  if(f>1) $('#js-ulPagination').append('<li class="page-item disabled"><a class="page-link pagination-threeDot-btn">...</a></li>');
+
+  for(let i = f; i <= l; i++){
+    let temp = undefined;
+    if(i == curPage){
+      temp = `<li class="page-item active"><a class="page-link" href="/${i}">${i}</a></li>`
+    }
+    else
+      temp = `<li class="page-item"><a class="page-link" href="/${i}">${i}</a></li>`
+      $('#js-ulPagination').append(temp);
+  }
+
+  if(l<pages) $('#js-ulPagination').append('<li class="page-item disabled"><a class="page-link pagination-threeDot-btn">...</a></li>');
+}
 
 // save image
 function saveImg(slug){
@@ -75,3 +81,19 @@ function saveImg(slug){
 function viewImg(link){
   $("#fullWidthMeme").attr("src",link);
 }
+
+// search
+$('#js-searchTag-btn').on('click', (event) => {
+  if($('#tags').val().length > 0)
+    $('#js-searchTag-form')[0].submit();
+})
+
+
+$( function() {
+  const suggestTag = $('#suggestTag').val().split(',');
+  // console.log(suggestTag);
+  $( "#tags" ).autocomplete({
+    source: suggestTag
+  });
+
+})

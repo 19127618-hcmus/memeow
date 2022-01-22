@@ -12,7 +12,7 @@ exports.library = async (user) => {
     for(let i in meme){
         for(let j in lib){
             if(meme[i].slug == lib[j]){
-                meme[i].saved = 1;
+                meme[i].Saved = 1;
                 userSaved.push(meme[i]);
                 break;
             }

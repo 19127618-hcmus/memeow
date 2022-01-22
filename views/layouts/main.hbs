@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/jquery-ui/jquery-ui.css">
     <link rel="shortcut icon" href="/assets/logo/favicon_io/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/assets/css/home.css">
@@ -27,10 +28,10 @@
           </a>
 
 
-          <div class="searchbar w-50 d-flex flex-nowrap">
-            <input class="search_input w-100" type="text" name="" placeholder="Search...">
-            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-          </div>
+          <form method="get" class="searchbar w-50 d-flex flex-nowrap" id="js-searchTag-form">
+            <input class="search_input w-100" type="search" id="tags" name="searchTag" placeholder="Search..." required>
+            <button id="js-searchTag-btn" class="search_icon"><i class="fas fa-search"></i></button>
+          </form>
 
           {{#if user}}
           {{!-- loged in --}}
@@ -77,7 +78,9 @@
 
       </nav>
 
+    <div style="min-height: 64.4vh;">
     {{{body}}}
+    </div>
 
     {{!-- footer --}}
     <footer class="bg-dark text-center text-white">
@@ -117,6 +120,7 @@
 </body>
 
 <script src="/assets/js/jquery-3.6.0.min.js"></script>
+<script src="/assets/jquery-ui/jquery-ui.js"></script>
 <script src="/assets/bootstrap/js/bootstrap.js"></script>
 <script src="/assets/js/home.js"></script>
 <script src="/assets/js/admin.js"></script>

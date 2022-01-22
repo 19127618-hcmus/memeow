@@ -9,18 +9,47 @@ exports.index = async (req, res, next) => {
     const numOfMeme = await pagination.countMeme();
     const pages = Math.ceil(numOfMeme/perPage);
 
-    if(!req.user){
-        meme = await homeService.renderHome(perPage, page);
+    const searchTag = req.query.searchTag;
+
+    const suggestTag = await homeService.suggestSearchTag();
+
+    // console.log(req.query)
+
+    if(searchTag){
+        if(!req.user){
+            meme = await homeService.renderHome(perPage, page, searchTag);
+        }
+        else{
+            meme = await homeService.renderHomeLogin(req.user, perPage, page, searchTag);
+        }
+        res.render('../component/home/view/home', 
+        {
+            meme: meme,
+            user: req.user,
+            suggestTag: suggestTag,
+        });
     }
+
     else{
-        meme = await homeService.renderHomeLogin(req.user, perPage, page);
-    }
-    res.render('../component/home/view/home', 
-    {
-        meme: meme,
-        user: req.user,
-        curPage: page,
-        pages: pages,
-    });
+        if(!req.user){
+            meme = await homeService.renderHome(perPage, page);
+        }
+        else{
+            meme = await homeService.renderHomeLogin(req.user, perPage, page);
+        }
+        res.render('../component/home/view/home', 
+        {
+            meme: meme,
+            user: req.user,
+            curPage: page,
+            pages: pages,
+            suggestTag: suggestTag,
+        });}
 }
 
+exports.test = async (req, res) => {
+    const suggestTag = await homeService.suggestSearchTag();
+    console.log(suggestTag);
+    // res.json(suggestTag);
+    res.redirect('/')
+}

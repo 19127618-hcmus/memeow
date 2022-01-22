@@ -17,7 +17,7 @@ const Meme = new Schema(
   },
   { timestamps: true }
 );
-
+// Meme.index({name: 'text', tag: 'text'});
 // Add plugin
 mongoose.plugin(slug);
 

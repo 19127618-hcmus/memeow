@@ -3,7 +3,6 @@ const loginService = require('./loginService');
 
 exports.index = (req, res, next) => {
     const reqQuery = req.query;
-    console.log(reqQuery.SignIn)
 
     let signInFail = undefined;
     let signUpFail = undefined;

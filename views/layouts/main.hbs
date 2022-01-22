@@ -30,10 +30,10 @@
             <img src="/assets/logo/memeow-white.png" alt="website logo" class="weblogo">
           </a>
 
-          <div class="searchbar w-50 d-flex flex-nowrap">
+          <form method="get" action="/s" class="searchbar w-50 d-flex flex-nowrap">
             <input id="nav-search-tags" class="search_input w-100" type="text" name="searchTag" placeholder="Search...">
-            <button type="" id="nav-search-btn" class="search_icon"><i class="fas fa-search"></i></button>
-          </div>
+            {{!-- <button type="" id="nav-search-btn" class="search_icon"><i class="fas fa-search"></i></button> --}}
+          </form>
 
           {{#if user}}
           {{!-- loged in --}}

@@ -77,38 +77,41 @@ function viewImg(link){
 }
 
 // search
-$( function() {
-  var availableTags = [
-    "ActionScript",
-    "AppleScript",
-    "Asp",
-    "BASIC",
-    "C",
-    "C++",
-    "Clojure",
-    "COBOL",
-    "ColdFusion",
-    "Erlang",
-    "Fortran",
-    "Groovy",
-    "Haskell",
-    "Java",
-    "JavaScript",
-    "Lisp",
-    "Perl",
-    "PHP",
-    "Python",
-    "Ruby",
-    "Scala",
-    "Scheme"
-  ];
-  $( "#nav-search-tags" ).autocomplete({
-    source: availableTags
-  });
-} );
+// $( function() {
+//   var availableTags = [
+//     "ActionScript",
+//     "AppleScript",
+//     "Asp",
+//     "BASIC",
+//     "C",
+//     "C++",
+//     "Clojure",
+//     "COBOL",
+//     "ColdFusion",
+//     "Erlang",
+//     "Fortran",
+//     "Groovy",
+//     "Haskell",
+//     "Java",
+//     "JavaScript",
+//     "Lisp",
+//     "Perl",
+//     "PHP",
+//     "Python",
+//     "Ruby",
+//     "Scala",
+//     "Scheme"
+//   ];
+//   $( "#nav-search-tags" ).autocomplete({
+//     source: availableTags
+//   });
+// } );
 
 
-$('#nav-search-btn').on('click', function (event) {
-
-}
-)
+// $('#nav-search-btn').on('click', function (event) {
+//   const searchValue = $('#nav-search-tags').val();
+//   $.get(`/search?searchTag=${searchValue}`, function(data){
+//     console.log(searchValue);
+//   })
+// }
+// )
